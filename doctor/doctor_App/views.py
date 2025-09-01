@@ -3,8 +3,14 @@ from django.shortcuts import HttpResponse
 
 # Create your views here.
 
-def all_users(request):
-    return HttpResponse('Returning all users')
+def index(request):
+   
+    return render(request, "index.html")
 
 
+def login(request):
+    return render(request, "login.html")
 
+
+def aboutus(request):
+    return render(request, "aboutus.html")

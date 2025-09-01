@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block title %}Home - Doctor Appointment{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <section class="card">
+        <h2>Recent Checkups</h2>
+        <ul>
+            {% for checkup in recent_checkups %}
+                <li>
+                    <strong>{{ checkup.patient }}</strong> with {{ checkup.doctor }} 
+                    on <em>{{ checkup.date }}</em>
+                </li>
+            {% empty %}
+                <li>No recent checkups.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Upcoming Appointments</h2>
+        <ul>
+            {% for appointment in upcoming_appointments %}
+                <li>
+                    <strong>{{ appointment.patient }}</strong> with {{ appointment.doctor }} 
+                    on <em>{{ appointment.date }}</em>
+                </li>
+            {% empty %}
+                <li>No upcoming appointments.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+{% endblock %}
